@@ -1,0 +1,150 @@
+### REGISTRATION
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"akshu",
+    "password":"akshay",
+    "email":"akshay@gmail.com"
+}
+
+### REGISTRATION
+POST http://localhost:4000/author-api/user
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"ravi",
+    "password":"ravi",
+    "email":"ravi@gmail.com"
+}
+
+### USER LOGIN
+POST http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"akshu",
+    "password":"akshay"
+}
+
+### AUTHOR LOGIN
+POST http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"ravi",
+    "password":"ravi"
+}
+
+### ADD NEW ARTICLE
+POST http://localhost:4000/author-api/new-article
+Content-Type: application/json
+
+{
+    "articleId":"{{$timestamp}}",
+    "title":"Fundamentals of JS",
+    "category":"programming",
+    "content":"............",
+    "dateOfCreation":"{{$datetime iso8601}}",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "username":"bhanu",
+    "comments":[],
+    "status":true
+}
+
+### READ ARTICLES BY AUTHOR USERNAME
+GET http://localhost:4000/author-api/articles/bhanu
+
+### EDIT ARTICLES here we have to give articleID and date of creation manually from DB 
+PUT http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleId":"1709983736",
+    "title":"Fundamentals of JS",
+    "category":"programming",
+    "content":"......HELLO AFTER MODIFICATION......",
+    "dateOfCreation":"2024-03-09T11:28:56.719Z",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "username":"bhanu",
+    "comments":[],
+    "status":true
+}
+
+### DELETE ARTICLE (SOFT DELETE) (WE WILL JUST SET THE STATUS AS FALSE AND HIDE THE ARTICLE FROM AUTHOR)
+PUT http://localhost:4000/author-api/article/1709983736
+Content-Type: application/json
+
+{
+    "articleId":"1709983736",
+    "title":"Fundamentals of JS",
+    "category":"programming",
+    "content":"......HELLO AFTER MODIFICATION......",
+    "dateOfCreation":"2024-03-09T11:28:56.719Z",
+    "dateOfModification":"2024-03-09T11:52:43.804Z",
+    "username":"bhanu",
+    "comments":[],
+    "status":false
+}
+
+### READ ARTICLES BY USER
+GET http://localhost:4000/user-api/articles
+
+### WRITING COMMENTS BY USER
+POST http://localhost:4000/user-api/comment/1709983736
+Content-Type: application/json
+
+{
+    "username":"ravi",
+    "comment":"AMAZING CONTENT"
+}
+
+### ADMIN API
+GET http://localhost:4000/admin-api/test-admin
+
+### ADMIN LOGIN
+POST http://localhost:4000/admin-api/login
+Content-Type: application/json
+
+{
+    "userType":"admin",
+    "username":"admin",
+    "password":"admin"
+}
+
+### ADMIN READ USERS
+GET http://localhost:4000/admin-api/user-list
+
+### ADMIN READ AUTHORS
+GET http://localhost:4000/admin-api/author-list
+
+### ADMIN GET ARTICLES BY AUTHOR NAME
+GET http://localhost:4000/admin-api/article-of-author/AKSHAY
+
+### ADMIN BLOCK AUTHOR
+PUT http://localhost:4000/admin-api/author-list/ravi
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"ravi",
+    "password":"ravi",
+    "email":"ravi@gmail.com",
+    "blockStatus":false
+}
+
+### ADMIN BLOCK USER
+PUT http://localhost:4000/admin-api/user-list/akshu
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"akshu",
+    "password":"akshay",
+    "email":"akshay@gmail.com",
+    "blockStatus":false
+}
