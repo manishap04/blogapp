@@ -4,9 +4,9 @@ Content-Type: application/json
 
 {
     "userType":"user",
-    "username":"akshu",
-    "password":"akshay",
-    "email":"akshay@gmail.com"
+    "username":"manisha",
+    "password":"mani",
+    "email":"mani@gmail.com"
 }
 
 ### REGISTRATION
@@ -15,9 +15,9 @@ Content-Type: application/json
 
 {
     "userType":"author",
-    "username":"ravi",
-    "password":"ravi",
-    "email":"ravi@gmail.com"
+    "username":"manjima",
+    "password":"manji",
+    "email":"manji@gmail.com"
 }
 
 ### USER LOGIN
@@ -26,8 +26,8 @@ Content-Type: application/json
 
 {
     "userType":"user",
-    "username":"akshu",
-    "password":"akshay"
+    "username":"manisha",
+    "password":"mani"
 }
 
 ### AUTHOR LOGIN
@@ -36,8 +36,8 @@ Content-Type: application/json
 
 {
     "userType":"author",
-    "username":"ravi",
-    "password":"ravi"
+    "username":"manjima",
+    "password":"manji"
 }
 
 ### ADD NEW ARTICLE
@@ -123,28 +123,28 @@ GET http://localhost:4000/admin-api/user-list
 GET http://localhost:4000/admin-api/author-list
 
 ### ADMIN GET ARTICLES BY AUTHOR NAME
-GET http://localhost:4000/admin-api/article-of-author/AKSHAY
+GET http://localhost:4000/admin-api/article-of-author/manisha
 
 ### ADMIN BLOCK AUTHOR
-PUT http://localhost:4000/admin-api/author-list/ravi
+PUT http://localhost:4000/admin-api/author-list/manjima
 Content-Type: application/json
 
 {
     "userType":"author",
-    "username":"ravi",
-    "password":"ravi",
-    "email":"ravi@gmail.com",
+    "username":"manjima",
+    "password":"manji",
+    "email":"manji@gmail.com",
     "blockStatus":false
 }
 
 ### ADMIN BLOCK USER
-PUT http://localhost:4000/admin-api/user-list/akshu
+PUT http://localhost:4000/admin-api/user-list/manisha
 Content-Type: application/json
 
 {
     "userType":"user",
-    "username":"akshu",
-    "password":"akshay",
-    "email":"akshay@gmail.com",
+    "username":"manisha",
+    "password":"mani",
+    "email":"mani@gmail.com",
     "blockStatus":false
 }
